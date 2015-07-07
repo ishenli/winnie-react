@@ -1,0 +1,36 @@
+{
+  "name": "winnie-react",
+  "version": "0.0.1",
+  "description": "react learning",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^5.6.15",
+    "babel-loader": "^5.3.1",
+    "bower": "^1.4.1",
+    "css-loader": "^0.15.1",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.1.0",
+    "highlight.js": "^8.6.0",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
+    "shelljs": "^0.5.1",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.10.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rc-tools run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.oschina.net/ishenli/winnie-react.git"
+  },
+  "keywords": [
+    "react",
+    "ui"
+  ],
+  "author": "shenli",
+  "license": "MIT"
+}

@@ -1,0 +1,1 @@
+[React支持了ES6 Classes，听听他们怎么说](http://www.infoq.com/cn/news/2015/03/react-es6-classes)
