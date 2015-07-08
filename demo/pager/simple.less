@@ -1,0 +1,45 @@
+@page-color:#337ab7;
+
+.ui-pager{
+    li {
+        display: inline;
+        list-style: none;
+    }
+    a {
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        border:1px solid #d5d5d5;
+        padding:0 12px;
+        margin-right: 10px;
+        background-color: #fff;
+        font-size: 14px;
+        text-align: center;
+        cursor: pointer;
+        font-family: arial;
+        vertical-align: top;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .ui-pager-ellipsis{
+        border: 0;
+        background-color: transparent;
+        cursor: text;
+    }
+    .ui-pager-item-active a {
+        z-index: 2;
+        color: #fff;
+        cursor: default;
+        background-color: @page-color;
+        border-color: @page-color;
+    }
+}
+
+.ui-pager-item-diabled  a {
+    color: #777;
+    background-color: #fff;
+    border-color: #ddd;
+    cursor: not-allowed;
+}

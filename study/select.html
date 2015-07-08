@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>select</title>
+	<script src="../lib/react.js"></script>
+    <script src="../lib/JSXTransformer.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/jsx">
+	var Radio = React.createClass({
+		propTypes: {
+			onChange: React.PropTypes.func
+		},
+		getInitialState: function () {
+			return {
+				value: this.props.defaultValue
+			}
+		},
+		handleChange: function (e) {
+			if (this.props.onChange) {
+				this.props.onChange(e);
+			}
+
+			this.setState({
+				value: e.target.value
+			});
+		},
+		render: function () {
+			var children = {};
+			var value = this.props.value || this.state.value;
+			React.Children.forEach(this.props.children, function (child, i) {
+				var label = (
+					<label>
+						<input type="radio" name= {this.props.name}
+						value = {child.props.value}
+						checked = {child.props.value == value}
+						onChange = {this.handleChange}
+						/>
+						{child.props.children}
+					</label>
+				);
+
+				children['label' + i] = label;
+			}.bind(this));
+			console.log(this);
+			// return this.transferPropsTo(<span>{children}</span>);
+			return (<span>{children}</span>);
+		}
+	});
+
+	var MyForm = React.createClass({
+		submitHandler: function (e) {
+			e.preventDefault();
+			alert(this.refs.radio.state.value)
+		},
+		render: function () {
+			return (
+				<form onSubmit = {this.submitHandler}>
+					<Radio ref="radio" name="myRadio" defaultValue="B">
+						<option value="A">first</option>
+						<option value="B">two</option>
+						<option value="C">third</option>
+					</Radio>
+				</form>
+			);
+		}
+	});
+
+	React.render(<MyForm/>, document.getElementById('example'));
+</script>
+</body>
+</html>

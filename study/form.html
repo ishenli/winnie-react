@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>multipeChoice</title>
+	<script src="../lib/react.js"></script>
+    <script src="../lib/JSXTransformer.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/jsx">
+    var MyForm = React.createClass({
+        getInitialState: function () {
+            return {
+                helloTo: 'hello world',
+                checked: false
+            };
+        },
+        handleChange: function (e) {
+            this.setState({
+                helloTo: e.target.value.toUpperCase()
+            });
+            console.log(e.target.value);
+        },
+        submitHandler: function (e) {
+            e.preventDefault();
+            console.log(this.state.helloTo);
+        },
+        radioHandler: function (e) {
+            console.log(e.target.checked);
+            this.setState({
+                checked: !this.state.checked
+            });
+            console.log(e.target.checked);
+        },
+        render: function () {
+            return (
+                <form  action="index.html" method="post" onSubmit={this.submitHandler}>
+                    <input type="text" name="name" value={this.state.helloTo}
+                        onChange= {this.handleChange}
+                    />
+                    <select defaultValue={["C"]}>
+                            <option value="A">First</option>
+                            <option value="B">Second</option>
+                            <option value="C">THree</option>
+                    </select>
+                    <input type="radio" name="name" value="A" checked = {this.state.checked} onClick={this.radioHandler}/>
+                    <input type="submit" name="button" value="submit"/>
+                </form>
+            )
+        }
+    });
+
+    React.render(<MyForm/>, document.getElementById('example'));
+</script>
+</body>
+</html>
