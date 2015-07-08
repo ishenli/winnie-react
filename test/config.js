@@ -15,7 +15,7 @@ module.exports = function(config) {
         reporters.push('coverage');
     }
 
-    var reporters = ['spec'];
+    var reporters = ['spec', 'coverage'];
 
     var testConfig = {
 
@@ -36,7 +36,9 @@ module.exports = function(config) {
         ],
 
         preprocessors: {
-            'test/test.bundle.js': ['webpack']
+            'test/test.bundle.js': ['webpack'],
+            'src/**/*.js':['coverage'],
+            'src/**/*.jsx':['coverage']
         },
         webpack: webpack.getTestWebConfig(),
 
@@ -51,14 +53,6 @@ module.exports = function(config) {
         exclude: [
 
         ],
-
-        // optionally, configure the reporter
-        coverageReporter: {
-            // text-summary | text | html | json | teamcity | cobertura | lcov
-            // lcovonly | none | teamcity
-            type: 'text|html',
-            dir: 'test/coverage/'
-        },
 
         // web server port
         port: 8120,
@@ -103,7 +97,7 @@ module.exports = function(config) {
                 file: 'lcov.info'
             }, {
                 type: 'html',
-                subdir: 'html'
+                subdir: 'report-html'
             }]
         };
     }

@@ -26,7 +26,8 @@ var Tab = React.createClass({
     getDefaultProps() {
         return {
             prefix: 'ui-tab-',
-            onTabClick: noop
+            onTabClick: noop,
+            onChange: noop
         }
     },
     _getTabPanels() {
@@ -49,7 +50,12 @@ var Tab = React.createClass({
         this.props.onTabClick(key);
         if (this.state.activeKey !== key) {
             this.setActiveKey(key);
+            this.handleChange(key);
         }
+    },
+
+    handleChange(key) {
+        this.props.onChange(key);
     },
 
     setActiveKey(key) {
