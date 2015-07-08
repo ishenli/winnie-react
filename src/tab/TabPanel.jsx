@@ -1,4 +1,8 @@
-// <TabPanel active={false} key={key} prefix={this.props.prefix}/>
+/**
+ * @file tab的panel面板
+ * @example
+ * 	<TabPanel active={false} key={key} prefix={this.props.prefix}/>
+ */
 
 var React = require('react');
 var prefixClsConcat = require('../util').prefixClsConcat;

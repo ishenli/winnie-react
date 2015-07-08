@@ -5,6 +5,7 @@ var shelljs = require('shelljs');
 var path = require('path');
 var babel = require('gulp-babel');
 var fs = require('fs');
+var karma = require('karma').server;
 var cwd = process.cwd();
 
 // clean all files
@@ -69,7 +70,7 @@ gulp.task('build', ['webpack'], function () {
         var code = highlight.highlightAuto(sourceContent).value;
         var appHtml = path.join(cwd, file.replace(/\.jsx?$/, '.html'));
 
-        //  计算各种打包之后的问剑
+        //  计算各种打包之后的文件
         var commonJs = path.join(cwd, 'build', 'common.js');
         var appJs = path.join(cwd, 'build', key + '.js');
         var appCss = path.join(cwd, 'build', config.staticPath, key + '.css');
@@ -97,6 +98,11 @@ gulp.task('watch', function () {
     gulp.watch(['./demo/**/*.js', './demo/**/*.less'],['webpack']);
 });
 
+gulp.task('test', function (done) {
+    karma.start({
+        configFile: __dirname + '/test/config.js',
+    }, done);
+});
 
 function format(html, data) {
     return html.replace(/\$\{([^\{\}]*)\}/g, function (_, name) {

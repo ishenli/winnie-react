@@ -14,6 +14,8 @@ var Nav = React.createClass({
         var tpl = [];
         var activeKey = props.activeKey;
         var prefix = props.prefix;
+        var triggerType = props.triggerType || 'onClick';
+        var events = {};
 
         React.Children.forEach(children, function(child, i){
             var key = child.key;
@@ -21,8 +23,10 @@ var Nav = React.createClass({
             if (activeKey === key) {
                  cls = 'ui-active';
             }
+            events[triggerType] = this.handleTabClick.bind(this, key)
+
             tpl.push(
-                <li onClick= {this.handleTabClick.bind(this, key)} className={cls} data-active= {activeKey=== key}>
+                <li {...events} className={cls} key={key} data-active={activeKey=== key}>
                     <a href="#">{child.props.tab}</a>
                 </li>
             );

@@ -18,7 +18,6 @@ var Tab = React.createClass({
             activeKey = props.defaultKey;
         }
 
-        console.log(typeof activeKey);
         return {
             activeKey: activeKey
         };
@@ -32,13 +31,11 @@ var Tab = React.createClass({
     },
     _getTabPanels() {
         var activeKey = this.state.activeKey;
-        var children = this.props.children; // children is tabPanel
+        var children = this.props.children; // children are tabPanel
         var newChildren =[];
         React.Children.forEach(children, (child)=>{
             var key = child.key;
             var active = activeKey === key;
-            console.log(activeKey);
-            console.log(key);
             newChildren.push(
                 <TabPanel active={active} key={key} prefix={this.props.prefix}>
                     {child.props.children}
@@ -66,8 +63,8 @@ var Tab = React.createClass({
         var tabPanels = this._getTabPanels();
         var activeKey = this.state.activeKey;
         return (
-            <div className={prefixClsConcat(prefix, 'container')}>
-                <Nav activeKey={activeKey} prefix={prefix} panels={this.props.children} handleTabClick={this.handleTabClick}/>
+            <div className={prefixClsConcat(prefix, 'container')} >
+                <Nav activeKey={activeKey} triggerType={props.triggerType} prefix={prefix} panels={this.props.children} handleTabClick={this.handleTabClick}/>
                 <div className={prefixClsConcat(prefix, 'bd')}>
                     {tabPanels}
                 </div>

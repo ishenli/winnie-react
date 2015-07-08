@@ -93,9 +93,31 @@ function getWebConfig() {
     };
 }
 
+function getTestWebConfig() {
+    return {
+        resolveLoader: {
+            root: path.join(__dirname, 'src')
+        },
+        module: {
+            loaders: [{
+                test: /\.jsx$/,
+                exclude: /node_modules/,
+                loader: 'babel'
+            }, {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'babel'
+            }]
+        },
+
+        resolve: getResolve(),
+    };
+}
+
 module.exports = {
     getWebConfig: getWebConfig,
     getEntry: getEntry,
     getModName: getModName,
-    staticPath: staticPath
+    staticPath: staticPath,
+    getTestWebConfig: getTestWebConfig
 };

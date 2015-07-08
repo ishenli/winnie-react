@@ -45,7 +45,7 @@ var Demo = React.createClass({
         return (
             <div>
                 <h2>Simple Tabs</h2>
-                <Tab defaultKey={'0'}>
+                <Tab defaultKey={'0'} triggerType={'onClick'}>
                     {createPanel(this.state.total)}
                 </Tab>
             </div>

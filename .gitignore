@@ -26,4 +26,4 @@ build
 lib
 asset
 dep
-npm-debug.log
+demo/**/*.html

@@ -14,11 +14,23 @@
     "highlight.js": "^8.6.0",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
+    "react": "^0.13.3",
     "shelljs": "^0.5.1",
     "style-loader": "^0.12.3",
     "webpack": "^1.10.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "jasmine": "^2.3.1",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.37",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-coverage": "^0.4.2",
+    "karma-jasmine": "^0.3.6",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-spec-reporter": "0.0.19",
+    "karma-webpack": "^1.5.1",
+    "phantomjs": "^1.9.16"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rc-tools run build"
