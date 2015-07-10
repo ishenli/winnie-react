@@ -17,11 +17,12 @@ var Nav = React.createClass({
         var triggerType = props.triggerType || 'onClick';
         var events = {};
 
-        React.Children.forEach(children, function(child, i){
+        React.Children.forEach(children, (child)=>{
             var key = child.key;
             var cls;
-            if (activeKey === key) {
-                 cls = 'ui-active';
+            cls = activeKey === key ? 'ui-active' : '';
+            if (child.props.disabled) {
+                cls += 'ui-disabled';
             }
             events[triggerType] = this.handleTabClick.bind(this, key)
 
@@ -30,13 +31,30 @@ var Nav = React.createClass({
                     <a href="#">{child.props.tab}</a>
                 </li>
             );
-        }.bind(this));
+        });
 
         return tpl;
     },
+
+    /**
+     * 给tab nav点击滑动功能，在组件render之后，因为要计算位移等信息
+     * @param  {Object} prevProps 更新之前的prop
+     * @param  {Object} prevState 更新之前的state
+     * @return {Object}           [description]
+     */
+    componentDidUpdate (prevProps, prevState) {
+
+    },
+
+    /**
+     * tab点击函数
+     * @param  {string} key 自定义的key标识
+     */
     handleTabClick(key) {
         this.props.handleTabClick(key);
     },
+
+
     render() {
         var props = this.props;
         var tabs = this._getTabs();

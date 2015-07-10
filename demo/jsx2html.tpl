@@ -3,7 +3,6 @@
 <head>
     <title>${modName}</title>
     <meta http-equiv=Content-Type content="text/html;charset=utf-8">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="${css}" charset="utf-8">
     <style>
         .hljs {
