@@ -26,14 +26,14 @@ describe('tab', function () {
     }
 
     beforeEach(function (done) {
-      React.render(<Tab defaultKey="2" onChange={handleChangeClick} onTabClick={handleTabClick}>
-          <TabPanel tab="tab1" key="1"></TabPanel>
-          <TabPanel tab="tab2" key="2"></TabPanel>
-          <TabPanel tab="tab3" key="3"></TabPanel>
-      </Tab>, node, function() {
-          tab = this;
-          done();
-      });
+        React.render(<Tab defaultKey="2" onChange={handleChangeClick} onTabClick={handleTabClick}>
+            <TabPanel tab="tab1" key="1"></TabPanel>
+            <TabPanel tab="tab2" key="2"></TabPanel>
+            <TabPanel tab="tab3" key="3"></TabPanel>
+            </Tab>, node, function() {
+                tab = this;
+                done();
+        });
     });
 
     afterEach(function () {
@@ -50,8 +50,6 @@ describe('tab', function () {
     })
 
     it('default active ok', function () {
-        console.log(React.findDOMNode(TestUtils.scryRenderedDOMComponentsWithTag(tab,
-        'li')[1]).className);
         expect(tab.state.activeKey).toEqual('2');
         expect(React.findDOMNode(TestUtils.scryRenderedDOMComponentsWithTag(tab,
         'li')[1]).className.indexOf('ui-active')>-1).toBe(true);
@@ -99,6 +97,4 @@ describe('tab', function () {
         }, 10);
 
     });
-
-
 });

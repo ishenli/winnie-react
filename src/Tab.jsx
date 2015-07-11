@@ -11,9 +11,11 @@ var Tab = React.createClass({
         var activeKey;
         if ('activeKey' in props) {
             activeKey = props.activeKey;
-        } else if ('defaultKey' in props) {
+        }
+        else if ('defaultKey' in props) {
             activeKey = props.defaultKey;
-        } else {
+        }
+        else {
             React.Children.forEach(props.children, (child) => {
                 if (!activeKey && !child.props.disabled) { // 如果都没disabled，就显示最后一个
                     activeKey = child.key;
