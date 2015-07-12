@@ -1,0 +1,43 @@
+@import "../common/global.less";
+@import "../common/form.less";
+
+#demo {
+    width: 400px;
+    height: 300px;
+    font-size: 12px;
+}
+
+.ui-hidden {
+    display: none!important;
+}
+
+.ui-autocomplete {
+    position: relative;
+    .ui-suggestion {
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: 100%;
+        border: 1px solid  @input-border;
+        background-color: #fff;
+        z-index: 10;
+    }
+
+    .ui-suggestion-list {
+        padding: 0;
+        margin: 10px 0;
+        list-style: none;
+
+    }
+    .ui-suggestion-item {
+        padding-left: 1em;
+        font-size: 1.2rem;
+        height: 4rem;
+        line-height: 4rem;
+        &:hover,
+        &.ui-hover {
+            background-color: @input-border;
+            cursor: pointer;
+        }
+    }
+}

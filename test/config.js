@@ -15,8 +15,6 @@ module.exports = function(config) {
         reporters.push('coverage');
     }
 
-    var reporters = ['spec'];
-
     var testConfig = {
 
         // base path, that will be used to resolve files and exclude
@@ -52,16 +50,8 @@ module.exports = function(config) {
 
         ],
 
-        // optionally, configure the reporter
-        coverageReporter: {
-            // text-summary | text | html | json | teamcity | cobertura | lcov
-            // lcovonly | none | teamcity
-            type: 'text|html',
-            dir: 'test/coverage/'
-        },
-
         // web server port
-        port: 8120,
+        port: 8222,
 
 
         // enable / disable watching file and executing tests whenever any file changes
@@ -103,7 +93,7 @@ module.exports = function(config) {
                 file: 'lcov.info'
             }, {
                 type: 'html',
-                subdir: 'html'
+                subdir: 'report-html'
             }]
         };
     }
