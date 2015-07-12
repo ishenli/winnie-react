@@ -5,5 +5,6 @@ var prefixClsConcat = function(prefix, str) {
 }
 
 module.exports = {
-    prefixClsConcat: prefixClsConcat
+    prefixClsConcat: prefixClsConcat,
+    noop: function(){}
 };

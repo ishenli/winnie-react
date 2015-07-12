@@ -8,6 +8,8 @@
 
 [Best Practices for Component State in React.jsBest Practices for Component State in React.js](http://brewhouse.io/blog/2015/03/24/best-practices-for-component-state-in-reactjs.html)
 
+[How to communicate between React components](http://ctheu.com/2015/02/12/how-to-communicate-between-react-components/)
+
 
 
 ###React官方文档

@@ -137,11 +137,11 @@ class AutoComplete extends React.Component {
         var next;
 
         if (direction === 'down') {
-            next = current === undefined ? 0 : current + 1;
+            next = current === null ? 0 : current + 1;
             next = next === count ? 0 : next;
         }
         else {
-            next = current === undefined ? count - 1 : current - 1;
+            next = current === null ? count - 1 : current - 1;
             next = next === -1 ? count - 1 : next;
         }
 
